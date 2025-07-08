@@ -1,0 +1,12 @@
+babel.config.ts
+jest.config.ts
+*/.ts
+*/.js
+coverage
+setupTests.ts
+jest.integration.ts
+vite.config.ts
+/dist/
+jest-unit.config.ts
+fileMock.ts
+vite-env.d.ts
