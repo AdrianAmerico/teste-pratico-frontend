@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"yarn server\"",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "eslint src/**/*.{ts,tsx} --fix",
@@ -16,10 +16,13 @@
     "prepare": "husky install",
     "test": "vitest --no-watch",
     "test:watch": "vitest",
-    "test:coverage": "vitest --coverage --no-watch"
+    "test:coverage": "vitest --coverage --no-watch",
+    "server": "json-server --watch ./db.json"
   },
   "dependencies": {
+    "concurrently": "^9.2.0",
     "husky": "^8.0.3",
+    "json-server": "^1.0.0-beta.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3"
