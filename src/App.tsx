@@ -1,9 +1,7 @@
+import { RouterProvider } from './pages/router';
+
 const App = () => {
-  return (
-    <div>
-      <h1>Hello, World!</h1>
-    </div>
-  );
+  return <RouterProvider />;
 };
 
 export default App;
