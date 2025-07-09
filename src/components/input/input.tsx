@@ -1,7 +1,7 @@
-import { forwardRef, InputHTMLAttributes, ReactNode } from 'react';
-import styles from './input.module.scss';
+import { forwardRef, InputHTMLAttributes } from 'react';
 import { mergeClassNames } from '@/utils';
-import { Search } from '../search/search';
+import { Search } from '@/components';
+import styles from './input.module.scss';
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   iconRight?: boolean;

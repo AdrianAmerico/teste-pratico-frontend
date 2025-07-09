@@ -1,4 +1,6 @@
-type SearchIcon = React.SVGProps<SVGSVGElement>;
+import { SVGProps } from 'react';
+
+type SearchIcon = SVGProps<SVGSVGElement>;
 
 export const Search = (props: SearchIcon) => {
   return (
