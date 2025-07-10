@@ -1,0 +1,13 @@
+@use '@/styles' as *;
+
+.title-h1 {
+  @include heading-1;
+}
+
+.title-h2 {
+  @include heading-2;
+}
+
+.title-h3 {
+  @include heading-3;
+}
