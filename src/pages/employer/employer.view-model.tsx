@@ -1,5 +1,8 @@
+import { useEmployerModel } from './employer.model';
 import { EmployerView } from './employer.view';
 
 export const EmployerPage = () => {
-  return <EmployerView />;
+  const employerModel = useEmployerModel();
+
+  return <EmployerView model={employerModel} />;
 };
