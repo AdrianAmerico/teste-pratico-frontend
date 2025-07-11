@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { EmployerPage } from '../employer';
+import { EmployeesPage } from '@/pages';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <EmployerPage />,
+    element: <EmployeesPage />,
   },
 ]);

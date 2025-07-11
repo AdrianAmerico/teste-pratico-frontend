@@ -1,8 +1,8 @@
 import { Header } from '@/components/header';
-import styles from './employer.module.scss';
+import styles from './employees.module.scss';
 import { Input, Table, TableColumnProps } from '@/components';
 import { mergeClassNames } from '@/utils';
-import { EmployerModel } from './employer.model';
+import { EmployeesModel } from './employees.model';
 import { Avatar } from '@/components/avatar/avatar';
 
 const columns: TableColumnProps[] = [
@@ -59,13 +59,13 @@ const columns: TableColumnProps[] = [
   },
 ];
 
-interface EmployerViewProps {
-  model: EmployerModel;
+interface EmployeesViewProps {
+  model: EmployeesModel;
 }
 
-export const EmployerView = (employerModel: EmployerViewProps) => {
-  const { employerList } = employerModel.model;
-  console.log(employerList.data);
+export const EmployeesView = (employerModel: EmployeesViewProps) => {
+  const { employeeList } = employerModel.model;
+  console.log(employeeList.data);
 
   return (
     <>
@@ -81,8 +81,8 @@ export const EmployerView = (employerModel: EmployerViewProps) => {
 
         <Table
           columns={columns}
-          data={employerList.data ?? []}
-          isLoading={employerList.isLoading}
+          data={employeeList.data ?? []}
+          isLoading={employeeList.isLoading}
           skeletonRows={10}
           primaryColumn="name"
           avatarColumn="image"

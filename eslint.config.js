@@ -14,7 +14,7 @@ export default defineConfig([
       'setupTests.ts',
       'jest.integration.ts',
       'vite.config.ts',
-      'dist/',
+      'dist/**',
       'jest-unit.config.ts',
       'fileMock.ts',
       'vite-env.d.ts',
