@@ -55,6 +55,10 @@
     .table__cell {
       padding: 0.5rem 2rem;
       text-align: left;
+
+      &__skeleton {
+        padding: 1rem 0.5rem;
+      }
     }
   }
 }
