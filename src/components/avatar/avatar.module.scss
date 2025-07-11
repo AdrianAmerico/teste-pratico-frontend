@@ -1,0 +1,24 @@
+.avatar__wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar__skeleton {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
