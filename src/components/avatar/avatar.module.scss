@@ -1,3 +1,5 @@
+@use '@/styles/' as *;
+
 .avatar__wrapper {
   display: inline-block;
   position: relative;
@@ -11,6 +13,11 @@
 
 .avatar__skeleton {
   animation: pulse 1.5s infinite ease-in-out;
+  background-color: $gray-10;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 @keyframes pulse {

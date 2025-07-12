@@ -26,11 +26,6 @@ export const Avatar = ({ src, size = 40, ...rest }: AvatarProps) => {
           style={{
             width: size,
             height: size,
-            backgroundColor: '#ccc',
-            borderRadius: '50%',
-            position: 'absolute',
-            top: 0,
-            left: 0,
           }}
         />
       )}
@@ -45,11 +40,8 @@ export const Avatar = ({ src, size = 40, ...rest }: AvatarProps) => {
         onLoad={handleLoad}
         onError={handleError}
         style={{
-          objectFit: 'cover',
-          borderRadius: '50%',
           width: size,
           height: size,
-          display: 'block',
         }}
         {...rest}
       />

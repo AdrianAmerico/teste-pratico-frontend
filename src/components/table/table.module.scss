@@ -21,8 +21,8 @@
   width: 100%;
   border-collapse: collapse;
   background-color: $white;
-  border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: $shadow-01;
 }
 
 .table__head {
@@ -46,7 +46,7 @@
 
 .table__body {
   .table__row {
-    border-top: 1px solid $gray-10;
+    box-shadow: $shadow-01;
 
     &--active {
       background-color: rgba(204, 243, 233, 0.5);
@@ -158,4 +158,11 @@
       }
     }
   }
+}
+
+.table__mobile-header-icon {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: $white;
+  border-radius: 9999px;
 }

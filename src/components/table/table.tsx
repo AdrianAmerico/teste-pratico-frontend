@@ -129,7 +129,9 @@ export const Table = ({
 
                       return (
                         <td key={colIndex} className={styles.table__cell}>
-                          {content}
+                          <Typography as="span" variant="h3">
+                            {content}
+                          </Typography>
                         </td>
                       );
                     })}
@@ -155,14 +157,7 @@ export const Table = ({
               </Typography>
             )}
           </div>
-          <div
-            style={{
-              width: '0.5rem',
-              height: '0.5rem',
-              backgroundColor: 'white',
-              borderRadius: '9999px',
-            }}
-          />
+          <div className={styles['table__mobile-header-icon']} />
         </div>
 
         {isLoading

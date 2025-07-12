@@ -4,6 +4,7 @@ import { Input, Table } from '@/components';
 import { mergeClassNames } from '@/utils';
 import { EmployeesModel } from './employees.model';
 import { employeesColumns } from './constants';
+import { Typography } from '@/components/typography';
 
 export interface EmployeesViewProps {
   model: EmployeesModel;
@@ -18,7 +19,9 @@ export const EmployeesView = (employerModel: EmployeesViewProps) => {
 
       <main className={mergeClassNames(styles.container, 'scrollbar')}>
         <div className={styles.headerGrid}>
-          <h2 className={styles.title}>Funcionários</h2>
+          <Typography variant="h1" as="h1" className={styles.title}>
+            Funcionários
+          </Typography>
           <div className={styles.searchWrapper}>
             <Input
               name="search"
