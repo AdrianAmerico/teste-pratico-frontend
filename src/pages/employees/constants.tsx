@@ -25,11 +25,11 @@ export const employeesColumns: TableColumnProps[] = [
     key: 'name',
   },
   {
-    title: 'Cargo',
+    title: 'CARGO',
     key: 'job',
   },
   {
-    title: 'Data de admissão',
+    title: 'DATA DE ADMISSÃO',
     key: 'admission_date',
     options: {
       customBodyRender: (data) => {
@@ -44,7 +44,7 @@ export const employeesColumns: TableColumnProps[] = [
     },
   },
   {
-    title: 'Telefone',
+    title: 'TELEFONE',
     key: 'phone',
     options: {
       customBodyRender: (data) => {
