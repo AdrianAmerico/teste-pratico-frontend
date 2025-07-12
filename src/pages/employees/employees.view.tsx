@@ -1,23 +1,24 @@
 import { Header } from '@/components/header';
 import styles from './employees.module.scss';
-import { Input, Table, TableColumnProps } from '@/components';
+import { Input, Table, TableColumnProps, Avatar } from '@/components';
 import { mergeClassNames } from '@/utils';
 import { EmployeesModel } from './employees.model';
-import { Avatar } from '@/components/avatar/avatar';
 
 const columns: TableColumnProps[] = [
   {
     title: 'FOTO',
     key: 'image',
     options: {
-      customBodyRender: (data) => {
+      customBodyRender: (data, rowData) => {
         return (
           <Avatar
             src={data || '/placeholder.svg'}
-            // alt="Profile"
-            // className={styles['table__avatar']}
-            // loading="lazy"
-            // decoding="async"
+            alt={`Imagem de perfil do(a) ${rowData?.name}`}
+            style={{
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+            }}
           />
         );
       },
@@ -64,8 +65,7 @@ interface EmployeesViewProps {
 }
 
 export const EmployeesView = (employerModel: EmployeesViewProps) => {
-  const { employeeList } = employerModel.model;
-  console.log(employeeList.data);
+  const { employeeList, handleSearchQuery } = employerModel.model;
 
   return (
     <>
@@ -75,7 +75,12 @@ export const EmployeesView = (employerModel: EmployeesViewProps) => {
         <div className={styles.headerGrid}>
           <h2 className={styles.title}>Funcionários</h2>
           <div className={styles.searchWrapper}>
-            <Input name="search" placeholder="Pesquisar" />
+            <Input
+              name="search"
+              placeholder="Pesquisar"
+              onChange={(e) => handleSearchQuery(e.target.value)}
+              className={styles.searchInput}
+            />
           </div>
         </div>
 
