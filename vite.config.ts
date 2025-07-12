@@ -33,6 +33,7 @@ export default defineConfig({
         '**/index.ts',
         'src/pages/auth/**',
         'vitest.config.ts',
+        'eslint.config.js',
       ],
     },
   },
