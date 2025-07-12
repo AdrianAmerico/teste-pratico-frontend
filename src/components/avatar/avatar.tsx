@@ -4,21 +4,11 @@ import styles from './avatar.module.scss';
 
 interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   src?: string;
-  nome?: string;
   size?: number;
 }
 
-export const Avatar = ({
-  src,
-  nome = 'usuário',
-  size = 40,
-  ...rest
-}: AvatarProps) => {
+export const Avatar = ({ src, size = 40, ...rest }: AvatarProps) => {
   const [loaded, setLoaded] = useState(false);
-
-  const altText = src
-    ? `Foto de perfil de ${nome}`
-    : `Imagem de perfil padrão de ${nome}`;
 
   const handleLoad = () => setLoaded(true);
   const handleError = () => setLoaded(true);
@@ -47,7 +37,6 @@ export const Avatar = ({
 
       <img
         src={src}
-        alt={altText}
         className={styles.avatar}
         loading="lazy"
         decoding="async"
