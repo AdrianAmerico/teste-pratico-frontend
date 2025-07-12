@@ -84,7 +84,7 @@ describe('useEmployeesModel', () => {
 
     await waitFor(() => {
       expect(result.current.employeeList.data).toEqual([mockEmployees[0]]);
-    })
+    });
 
     result.current.handleSearchQuery('Jane');
 

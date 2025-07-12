@@ -30,7 +30,11 @@ export const useEmployeesModel = () => {
   });
 
   return {
-    employeeList,
+    employeeList: {
+      data: employeeList.data,
+      isLoading: employeeList.isLoading,
+      isSuccess: employeeList.isSuccess,
+    },
     handleSearchQuery,
     searchQuery,
   };
