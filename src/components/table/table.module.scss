@@ -46,10 +46,10 @@
 
 .table__body {
   .table__row {
+    transition: ease all 200ms;
     box-shadow: $shadow-01;
-
-    &--active {
-      background-color: rgba(204, 243, 233, 0.5);
+    &:hover {
+      background-color: $gray-05;
     }
 
     .table__cell {
@@ -114,6 +114,11 @@
 
 .table__mobile-row {
   box-shadow: $shadow-01;
+  transition: ease all 200ms;
+
+  &:hover {
+    background-color: $gray-05;
+  }
 
   &-header {
     display: flex;
