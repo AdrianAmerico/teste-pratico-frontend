@@ -1,0 +1,66 @@
+@use '@/styles' as *;
+
+.container {
+  min-height: 100vh;
+  background-color: $gray-00;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.contentWrapper {
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.statusCode {
+  font-size: 6rem;
+  font-weight: bold;
+  color: $blue-primary;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: $black-neutral;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: $black-neutral;
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
+}
+
+.backButton {
+  transition: ease all 200ms;
+  border: 1px solid $gray-05;
+  color: $black-neutral;
+  background-color: $white;
+  padding: 0.75rem 1.5rem;
+
+  &:hover {
+    background-color: $gray-00;
+  }
+}

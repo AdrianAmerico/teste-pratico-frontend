@@ -1,2 +1,1 @@
-export * from './employees';
 export * from './not-found';
