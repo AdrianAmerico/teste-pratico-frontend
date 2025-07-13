@@ -8,11 +8,17 @@ exports[`NotFoundPage > shoudl match snapshot 1`] = `
     <div
       class="_header_57bb28"
     >
-      <img
-        alt="BeTalent Logo"
-        class="_logo_57bb28"
-        src="betech-logo.png"
-      />
+      <a
+        class="_logoLink_57bb28"
+        data-discover="true"
+        href="/"
+      >
+        <img
+          alt="BeTalent Logo"
+          class="_logo_57bb28"
+          src="betech-logo.png"
+        />
+      </a>
     </div>
     <main
       class="_main_84634a"
