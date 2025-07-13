@@ -1,77 +1,56 @@
-# React + TypeScript + Vite
+## TESTE FRONTEND BETALENT
 
-This template provides a minimal setup to get React working in Vite with HMR and
-some ESLint rules.
+Sistema desenvolvido para o Teste técnico Front-end.
 
-Currently, two official plugins are available:
+## 📌 Introdução
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react)
-  uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc)
-  uses [SWC](https://swc.rs/) for Fast Refresh
+O projeto consiste na exibição de uma tabela dinâmica de funcionários, onde os
+dados são obtidos de uma API simulada utilizando **json-server**. <br>
 
-## Expanding the ESLint configuration
+A tabela é responsiva e possui funcionalidades como pesquisa e filtragem de
+funcionários.
 
-If you are developing a production application, we recommend updating the
-configuration to enable type-aware lint rules:
+### ⚙️ Pré-requisitos
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- GIT
+- Node
+- Um Editor de Código ou IDE
+- npm ou yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 💻 Tecnologias utilizadas:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Typescript, React, Vite, HTML5, SASS, axios, react-query
+
+### Instalação
+
+### CLONE DO PROJETO
+
+Clone o projeto na sua máquina local no diretório de sua preferência:
+
+```
+git clone https://github.com/AdrianAmerico/teste-pratico-frontend.git
 ```
 
-You can also install
-[eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x)
-and
-[eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom)
-for React-specific lint rules:
+Entre na pasta do projeto:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+cd teste-frontend-bemobile
+```
+
+Realize a instalação das dependências do projeto:
+
+```
+yarn install
+```
+
+### INSTALANDO DEPENDÊNCIAS
+
+Após clonar e instalar o projeto, abra o terminal e rode o seguinte script:
+
+```
+yarn dev
+```
+
+O projeto estará disponível na URL: http://localhost:5173
+
+Após isso, basta carregar a página e os dados irão aparecer na tabela.
