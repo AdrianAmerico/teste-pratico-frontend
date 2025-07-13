@@ -166,3 +166,14 @@
   background-color: $white;
   border-radius: 9999px;
 }
+
+.table__cell__empty {
+  text-align: center;
+  padding: 1rem;
+}
+
+.table__mobile-empty {
+  text-align: center;
+  padding: 1rem;
+  box-shadow: $shadow-01;
+}

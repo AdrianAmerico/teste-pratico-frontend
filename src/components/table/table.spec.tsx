@@ -1,4 +1,4 @@
-import { screen, fireEvent } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import { Table, TableProps } from './table';
 import { sutMockProvider } from '@/__test__';
 
@@ -70,24 +70,14 @@ describe('Table component', () => {
   });
 
   it('should render skeletons while loading', () => {
-    makeSut({
+    const { sut } = makeSut({
       data: [],
       isLoading: true,
       skeletonRows: 3,
     });
 
-    const skeletons = screen.getAllByTestId(/skeleton-row-/i);
+    const skeletons = sut.getAllByTestId(/skeleton-row-/i);
     expect(skeletons).toHaveLength(3);
-  });
-
-  it('should show empty state when data is empty and not loading', () => {
-    makeSut({
-      data: [],
-      isLoading: false,
-      emptyText: 'Sem registros',
-    });
-
-    expect(screen.getByText('Sem registros')).toBeInTheDocument();
   });
 
   it('should expand and collapse mobile row details', () => {
@@ -113,7 +103,7 @@ describe('Table component', () => {
   });
 
   it('should render default cell value if customBodyRender is not provided', () => {
-    makeSut({
+    const { sut } = makeSut({
       columns: [
         {
           key: 'name',
@@ -123,11 +113,11 @@ describe('Table component', () => {
       data: [{ name: 'John Doe' }],
     });
 
-    expect(screen.getByText('John Doe')).toBeInTheDocument();
+    expect(sut.getByText('John Doe')).toBeInTheDocument();
   });
 
   it('should use customBodyRender if provided', () => {
-    makeSut({
+    const { sut } = makeSut({
       columns: [
         {
           key: 'name',
@@ -142,7 +132,7 @@ describe('Table component', () => {
       data: [{ name: 'Ignored' }],
     });
 
-    expect(screen.getByTestId('custom-render')).toHaveTextContent('Custom');
+    expect(sut.getByTestId('custom-render')).toHaveTextContent('Custom');
   });
 
   it('should render avatar as <img> when avatarColumn value is a string', () => {
@@ -177,5 +167,29 @@ describe('Table component', () => {
     const img = sut.container.querySelector('img');
     expect(img).toBeInTheDocument();
     expect(img?.getAttribute('src')).toBe('/avatar.png');
+  });
+
+  it('should show empty state when data is empty and not loading (desktop)', () => {
+    const { sut } = makeSut({
+      data: [],
+      isLoading: false,
+      emptyText: 'Sem registros',
+    });
+
+    expect(sut.getByTestId('empty-state')).toHaveTextContent('Sem registros');
+  });
+
+  it('should show empty state when data is empty and not loading (mobile)', () => {
+    // Simula viewport mobile (width < 768)
+    window.innerWidth = 500;
+    window.dispatchEvent(new Event('resize'));
+
+    const { sut } = makeSut({
+      data: [],
+      isLoading: false,
+      emptyText: 'Sem registros',
+    });
+
+    expect(sut.getByTestId('empty-mobile')).toHaveTextContent('Sem registros');
   });
 });

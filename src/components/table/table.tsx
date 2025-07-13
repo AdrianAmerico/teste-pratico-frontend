@@ -101,42 +101,53 @@ export const Table = ({
           </thead>
 
           <tbody className={styles.table__body}>
-            {isLoading
-              ? Array.from({ length: skeletonRows }).map((_, lineIndex) => (
-                  <tr
-                    key={lineIndex}
-                    data-testid={`skeleton-row-${lineIndex}`}
-                    className={styles.table__row}
-                  >
-                    {columns.map((_, colIndex) => (
-                      <td
-                        key={colIndex}
-                        className={styles.table__cell__skeleton}
-                      >
-                        <Skeleton />
+            {isLoading ? (
+              Array.from({ length: skeletonRows }).map((_, lineIndex) => (
+                <tr
+                  key={lineIndex}
+                  data-testid={`skeleton-row-${lineIndex}`}
+                  className={styles.table__row}
+                >
+                  {columns.map((_, colIndex) => (
+                    <td key={colIndex} className={styles.table__cell__skeleton}>
+                      <Skeleton />
+                    </td>
+                  ))}
+                </tr>
+              ))
+            ) : data.length === 0 ? (
+              <tr className={styles.table__row}>
+                <td
+                  colSpan={columns.length}
+                  className={styles.table__cell__empty}
+                  data-testid="empty-state"
+                >
+                  <Typography as="span" variant="h3">
+                    {emptyText}
+                  </Typography>
+                </td>
+              </tr>
+            ) : (
+              data.map((row, rowIndex) => (
+                <tr key={rowIndex} className={styles.table__row}>
+                  {columns.map((col, colIndex) => {
+                    const cellValue = row[col.key];
+
+                    const content = col.options?.customBodyRender
+                      ? col.options.customBodyRender(cellValue, row)
+                      : cellValue;
+
+                    return (
+                      <td key={colIndex} className={styles.table__cell}>
+                        <Typography as="span" variant="h3">
+                          {content}
+                        </Typography>
                       </td>
-                    ))}
-                  </tr>
-                ))
-              : data.map((row, rowIndex) => (
-                  <tr key={rowIndex} className={styles.table__row}>
-                    {columns.map((col, colIndex) => {
-                      const cellValue = row[col.key];
-
-                      const content = col.options?.customBodyRender
-                        ? col.options.customBodyRender(cellValue, row)
-                        : cellValue;
-
-                      return (
-                        <td key={colIndex} className={styles.table__cell}>
-                          <Typography as="span" variant="h3">
-                            {content}
-                          </Typography>
-                        </td>
-                      );
-                    })}
-                  </tr>
-                ))}
+                    );
+                  })}
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
@@ -160,96 +171,103 @@ export const Table = ({
           <div className={styles['table__mobile-header-icon']} />
         </div>
 
-        {isLoading
-          ? Array.from({ length: skeletonRows }).map((_, lineIndex) => (
-              <div
-                key={lineIndex}
-                className={styles['table__mobile-row']}
-                data-testid={`skeleton-mobile-row-${lineIndex}`}
-              >
-                {columns.map((_, colIndex) => (
-                  <div
-                    key={colIndex}
-                    className={styles['table__mobile-detail-row']}
-                  >
-                    <Skeleton />
-                  </div>
-                ))}
-              </div>
-            ))
-          : data.map((row, rowIndex) => {
-              const isExpanded = expandedRows.has(rowIndex);
-              const avatar = getAvatarData(row);
-              const primaryData = getPrimaryColumnData(row);
-              const otherColumns = getOtherColumns();
-
-              return (
-                <div key={rowIndex} className={styles['table__mobile-row']}>
-                  <div
-                    className={styles['table__mobile-row-header']}
-                    onClick={() => toggleRow(rowIndex)}
-                  >
-                    <div className={styles['table__mobile-row-content']}>
-                      {avatar && (
-                        <div
-                          className={styles['table__mobile-row-content-avatar']}
-                        >
-                          {typeof avatar === 'string' ? (
-                            <img
-                              src={avatar || '/placeholder.svg'}
-                              alt="Avatar"
-                              className={styles['table__mobile-row-avatar']}
-                            />
-                          ) : (
-                            avatar
-                          )}
-                        </div>
-                      )}
-
-                      <Typography as="span" variant="h3">
-                        {primaryData}
-                      </Typography>
-                    </div>
-
-                    {isExpanded ? <ChevronUp /> : <ChevronDown />}
-                  </div>
-
-                  {isExpanded && otherColumns.length > 0 && (
-                    <div className={styles['table__mobile-row-details']}>
-                      <div>
-                        {otherColumns.map((col) => {
-                          const cellValue = row[col.key];
-                          const displayValue = col.options?.customBodyRender
-                            ? col.options.customBodyRender(cellValue, row)
-                            : cellValue;
-
-                          return (
-                            <div
-                              key={col.key}
-                              className={styles['table__mobile-detail-row']}
-                            >
-                              <Typography as="span" variant="h2">
-                                {col.title}
-                              </Typography>
-
-                              <Typography as="span" variant="h3">
-                                {displayValue}
-                              </Typography>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
+        {isLoading ? (
+          Array.from({ length: skeletonRows }).map((_, lineIndex) => (
+            <div
+              key={lineIndex}
+              className={styles['table__mobile-row']}
+              data-testid={`skeleton-mobile-row-${lineIndex}`}
+            >
+              {columns.map((_, colIndex) => (
+                <div
+                  key={colIndex}
+                  className={styles['table__mobile-detail-row']}
+                >
+                  <Skeleton />
                 </div>
-              );
-            })}
-      </div>
+              ))}
+            </div>
+          ))
+        ) : data.length === 0 ? (
+          <div
+            className={styles['table__mobile-empty']}
+            data-testid="empty-mobile"
+            style={{}}
+          >
+            <Typography as="span" variant="h3">
+              {emptyText}
+            </Typography>
+          </div>
+        ) : (
+          data.map((row, rowIndex) => {
+            const isExpanded = expandedRows.has(rowIndex);
+            const avatar = getAvatarData(row);
+            const primaryData = getPrimaryColumnData(row);
+            const otherColumns = getOtherColumns();
 
-      {/* Empty State */}
-      {!isLoading && data.length === 0 && (
-        <div className={styles.table__empty}>{emptyText}</div>
-      )}
+            return (
+              <div key={rowIndex} className={styles['table__mobile-row']}>
+                <div
+                  className={styles['table__mobile-row-header']}
+                  onClick={() => toggleRow(rowIndex)}
+                >
+                  <div className={styles['table__mobile-row-content']}>
+                    {avatar && (
+                      <div
+                        className={styles['table__mobile-row-content-avatar']}
+                      >
+                        {typeof avatar === 'string' ? (
+                          <img
+                            src={avatar || '/placeholder.svg'}
+                            alt="Avatar"
+                            className={styles['table__mobile-row-avatar']}
+                          />
+                        ) : (
+                          avatar
+                        )}
+                      </div>
+                    )}
+
+                    <Typography as="span" variant="h3">
+                      {primaryData}
+                    </Typography>
+                  </div>
+
+                  {isExpanded ? <ChevronUp /> : <ChevronDown />}
+                </div>
+
+                {isExpanded && otherColumns.length > 0 && (
+                  <div className={styles['table__mobile-row-details']}>
+                    <div>
+                      {otherColumns.map((col) => {
+                        const cellValue = row[col.key];
+                        const displayValue = col.options?.customBodyRender
+                          ? col.options.customBodyRender(cellValue, row)
+                          : cellValue;
+
+                        return (
+                          <div
+                            key={col.key}
+                            className={styles['table__mobile-detail-row']}
+                          >
+                            <Typography as="span" variant="h2">
+                              {col.title}
+                            </Typography>
+
+                            <Typography as="span" variant="h3">
+                              {displayValue}
+                            </Typography>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })
+        )}
+      </div>
     </div>
   );
 };
