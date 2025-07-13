@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NotFoundPage > shoudl match snapshot 1`] = `
+<div>
+  <div
+    class="_container_84634a"
+  >
+    <div
+      class="_header_57bb28"
+    >
+      <img
+        alt="BeTalent Logo"
+        class="_logo_57bb28"
+        src="betech-logo.png"
+      />
+    </div>
+    <main
+      class="_main_84634a"
+    >
+      <div
+        class="_contentWrapper_84634a"
+      >
+        <div
+          class="_statusCode_84634a"
+        >
+          404
+        </div>
+        <h2
+          class="_title_84634a"
+        >
+          Página não encontrada
+        </h2>
+        <p
+          class="_description_84634a"
+        >
+          Desculpe, a página que você está procurando não existe ou foi movida.
+        </p>
+        <div
+          class="_actions_84634a"
+        >
+          <a
+            class="_backButton_84634a"
+            data-discover="true"
+            href="/"
+          >
+            Ir para início
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+`;
