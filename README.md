@@ -34,7 +34,7 @@ git clone https://github.com/AdrianAmerico/teste-pratico-frontend.git
 Entre na pasta do projeto:
 
 ```
-cd teste-frontend-bemobile
+cd teste-pratico-frontend
 ```
 
 Realize a instalação das dependências do projeto:
