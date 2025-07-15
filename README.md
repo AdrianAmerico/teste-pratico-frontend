@@ -56,12 +56,15 @@ O projeto estará disponível na URL: http://localhost:5173
 Após isso, basta carregar a página e os dados irão aparecer na tabela.
 
 ## Imagens do projeto
+
 ### Web
+
 <img width="921" height="716" alt="image" src="https://github.com/user-attachments/assets/31f149de-e93a-416c-adb9-2816e8417aae" />
 
 ### Mobile
+
 <img width="369" height="742" alt="image" src="https://github.com/user-attachments/assets/81b3d50f-2874-4aaa-9223-7bd94ea96e78" />
 
 ### Cobertura de testes unitários
-<img width="1223" height="859" alt="image" src="https://github.com/user-attachments/assets/9ff1adf9-baea-4fde-8a28-6a47dd4938f4" />
 
+<img width="1223" height="859" alt="image" src="https://github.com/user-attachments/assets/9ff1adf9-baea-4fde-8a28-6a47dd4938f4" />
